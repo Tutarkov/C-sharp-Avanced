@@ -16,7 +16,7 @@ namespace Animals.Models
         }
         public void Eat(string food)
         {
-            Console.WriteLine($"The {Name} is eating {food}.");
+            Console.WriteLine($" {Name} is eating {food}.");
         }
 
         public override void PrintAnimal()
