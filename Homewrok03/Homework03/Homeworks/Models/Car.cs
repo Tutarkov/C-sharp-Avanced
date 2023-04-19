@@ -10,16 +10,11 @@ namespace Homeworks.Models
     public class Car : Vehicle
     {
         public int FuelTank { get; set; }
-        public List<string> CountriesOfProduction { get; set; }
+        public List<string> CountriesProducedIn { get; set; }
 
-        public Car(int id, string type, int yearsOfProduction, int batchNumber, int fuelTank, List<string> CountriesOfProduction ) : base(id, type, yearsOfProduction, batchNumber)
+        public override void PrintVehicle()
         {
-            FuelTank = fuelTank;
-        }
-
-        public virtual void PrintVehicle()
-        {
-            Console.WriteLine($"Car is with  {YearsOfProduction} YearOfProduction and is producted {CountriesOfProduction}");
+            Console.WriteLine("Car: Type {0}, Produced in: {1}", Type, string.Join(", ", CountriesProducedIn));
         }
 
     }

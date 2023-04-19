@@ -6,14 +6,9 @@ namespace Homeworks.Static
 {
     public static class Validator
     {
-        public static void Validate(Vehicle vehicle)
+        public static bool Validate(Vehicle vehicle)
         {
-            if (vehicle.Id == 0)
-                Console.WriteLine("Invalid Id");
-            if (string.IsNullOrEmpty(vehicle.Type))
-                Console.WriteLine("Invalid Type");
-            if (vehicle.YearsOfProduction == 0)
-                Console.WriteLine("Invalid Year of Production");
+            return (vehicle.Id != 0 && !string.IsNullOrEmpty(vehicle.Type) && vehicle.YearOfProduction != 0);
         }
     }
 }

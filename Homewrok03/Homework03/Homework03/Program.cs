@@ -1,16 +1,23 @@
 ﻿using Homeworks.Models;
 using Homeworks.Static;
-
-static void Main(string[] args)
+namespace Homework03
 {
-    foreach (var vehicle in DB.Vehicles)
+    class Program
     {
-        vehicle.PrintVehicle();
+        static void Main(string[] args)
+        {
+            foreach (Vehicle vehicle in DB.Vehicles)
+            {
+                vehicle.PrintVehicle();
+            }
+
+            Car carToValidate = new Car() { Id = 0, Type = "", YearOfProduction = 2015 };
+            Bike bikeToValidate = new Bike() { Id = 4, Type = "road", YearOfProduction = 0, Color = "blue" };
+
+            Console.WriteLine("Car validation result: {0}", Validator.Validate(carToValidate));
+            Console.WriteLine("Bike validation result: {0}", Validator.Validate(bikeToValidate));
+
+            Console.ReadLine();
+        }
     }
-
-    var car = new Car { Id = 4, Type = "Hatchback", YearsOfProduction = 2021, BatchNumber = 101, FuelTank = 40, CountriesOfProduction = new string[] { "Germany", "France" } };
-    Validator.Validate(car);
-
-    var bike = new Bike { Id = 5, Type = "Cruiser", YearsOfProduction = 2022, BatchNumber = 202, Color = "Blue" };
-    Validator.Validate(bike);
 }
